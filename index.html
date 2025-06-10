@@ -14,9 +14,10 @@
       const csvRows = [
         '\uFEFF' + headers.join(','),
         ...items.map(row =>
-          headers.map(h =>
-            "\""+(row[h] ?? '').toString().replace(/"/g, '""')+"\""
-          ).join(',')
+          headers.map(h => {
+            const value = (row[h] ?? '').toString().replace(/"/g, '""');
+            return `"${value}"`;
+          }).join(',')
         )
       ];
 
