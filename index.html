@@ -15,7 +15,7 @@
         '\uFEFF' + headers.join(','),
         ...items.map(row =>
           headers.map(h =>
-            `"${(row[h] ?? '').toString().replace(/"/g, '""')}"`
+            "\""+(row[h] ?? '').toString().replace(/"/g, '""')+"\""
           ).join(',')
         )
       ];
